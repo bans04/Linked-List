@@ -34,6 +34,33 @@ public class LinkedList {
             tail = tail.next;
         }
     }
+    
+    //insert method
+	public void insert(int data) {
+		Node node = new Node(data);
+		if (head == null) {
+			head = node;
+			tail = node;
+		} else {
+			tail.next = node;
+			tail = tail.next;
+		}
+	}
+    
+    //insert between method
+	public void insertBetweenNode(int a, int b, int c) {
+		Node newNode = new Node(c);
+		Node temp = head;
+		while (temp.next != null) {
+			if ((temp.data == a && temp.next.data == b) || (temp.data == a && temp.next.data == b)) {
+				Node afterc = temp.next;
+				temp.next = newNode;
+				temp.next.next = afterc;
+				break;
+			}
+			temp = temp.next;
+		}
+	}
 	
 	public void display() {
 		Node temp = head;
@@ -49,9 +76,10 @@ public class LinkedList {
 
 	public static void main(String[] args) {
 		LinkedList obj = new LinkedList();
-		obj.append(56);
-		obj.append(30);
-		obj.append(70);
+		obj.insert(56);
+		obj.insert(70);
+		obj.display();
+		obj.insertBetweenNode(56, 70, 30);
 		obj.display();
 	}
 }
