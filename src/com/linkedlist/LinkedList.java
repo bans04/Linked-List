@@ -9,7 +9,9 @@ package com.linkedlist;
 
 public class LinkedList {
 	Node head;
+	Node tail;
 
+	//add method
 	public void addNodeMethod(int data) {
 		Node newNode = new Node(data);
 		if (head == null) {
@@ -20,6 +22,18 @@ public class LinkedList {
 			newNode.next = temp;
 		}
 	}
+	
+	//append method
+    public void append(int data) {
+        Node nextNode = new Node(data);
+        if (head == null) {
+            head = nextNode;
+            tail = nextNode;
+        } else {
+            tail.next = nextNode;
+            tail = tail.next;
+        }
+    }
 	
 	public void display() {
 		Node temp = head;
@@ -35,9 +49,9 @@ public class LinkedList {
 
 	public static void main(String[] args) {
 		LinkedList obj = new LinkedList();
-		obj.addNodeMethod(70);
-		obj.addNodeMethod(30);
-		obj.addNodeMethod(56);
+		obj.append(56);
+		obj.append(30);
+		obj.append(70);
 		obj.display();
 	}
 }
