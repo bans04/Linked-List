@@ -4,6 +4,7 @@ package com.linkedlist;
  * Ability to create Linked List by adding 30 and 56 to 70
  * Ability to insert 30 between 56 and 70
  * Ability to delete the first element in the LinkedList of sequence 56->30->70
+ * Ability to delete the last element in the LinkedList of sequence 56->30->70
  * 
  * @ Dnyandeo Banosde
  * 
@@ -73,6 +74,21 @@ public class LinkedList {
 			head = temp.next;
 		}
 	}
+	
+	//delete last element
+	public void popLastNode() {
+		Node temp = head;
+		if (head == null) {
+			System.out.println("Linked list is empty");
+		} else {
+			while (temp.next != tail) {
+				temp = temp.next;
+			}
+			temp.next = null;
+			tail = temp;
+		}
+	}
+	
 	public void display() {
 		Node temp = head;
 		if (head == null) {
@@ -91,7 +107,7 @@ public class LinkedList {
 		obj.addNodeMethod(30);
 		obj.addNodeMethod(56);
 		obj.display();
-		obj.pop();
+		obj.popLastNode();
 		obj.display();
 	}
 }
