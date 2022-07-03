@@ -2,6 +2,8 @@ package com.linkedlist;
 /*
  * Lets create a simple Linked List of 56, 30 and 70
  * Ability to create Linked List by adding 30 and 56 to 70
+ * Ability to insert 30 between 56 and 70
+ * Ability to delete the first element in the LinkedList of sequence 56->30->70
  * 
  * @ Dnyandeo Banosde
  * 
@@ -62,6 +64,15 @@ public class LinkedList {
 		}
 	}
 	
+	//pop method
+	public void pop() {
+		Node temp = head;
+		if (head == null) {
+			System.out.println("List is empty");
+		} else {
+			head = temp.next;
+		}
+	}
 	public void display() {
 		Node temp = head;
 		if (head == null) {
@@ -76,10 +87,11 @@ public class LinkedList {
 
 	public static void main(String[] args) {
 		LinkedList obj = new LinkedList();
-		obj.insert(56);
-		obj.insert(70);
+		obj.addNodeMethod(70);
+		obj.addNodeMethod(30);
+		obj.addNodeMethod(56);
 		obj.display();
-		obj.insertBetweenNode(56, 70, 30);
+		obj.pop();
 		obj.display();
 	}
 }
