@@ -5,8 +5,9 @@ package com.linkedlist;
  * Ability to insert 30 between 56 and 70
  * Ability to delete the first element in the LinkedList of sequence 56->30->70
  * Ability to delete the last element in the LinkedList of sequence 56->30->70
+ * Ability to search LinkedList to find Node with value 30
  * 
- * @ Dnyandeo Banosde
+ * @ Dnyandeo Bansode
  * 
  * */
 
@@ -89,6 +90,26 @@ public class LinkedList {
 		}
 	}
 	
+	//search method
+	public void search(int data) {
+		Node temp = head;
+		int index = 0;
+		if (head == null) {
+			System.out.println("Linked List is empty");
+		} else {
+			while (temp != null) {
+				index++;
+				if (temp.data == data) {
+					System.out.println("Node is present at " + index +" position");
+					break;
+				} else {
+					temp = temp.next;
+				}
+			}
+		}
+
+	}
+	
 	public void display() {
 		Node temp = head;
 		if (head == null) {
@@ -107,7 +128,6 @@ public class LinkedList {
 		obj.addNodeMethod(30);
 		obj.addNodeMethod(56);
 		obj.display();
-		obj.popLastNode();
-		obj.display();
+		obj.search(30);
 	}
 }
